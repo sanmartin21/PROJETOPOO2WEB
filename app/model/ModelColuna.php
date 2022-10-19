@@ -1,7 +1,7 @@
 <? 
 namespace App\Model;
 
-class ModelColuna{
+class ModelColuna {
     
     public $nome;
     public $tipo;

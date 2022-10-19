@@ -1,7 +1,7 @@
 <? 
 namespace App\Model;
 
-class ModelTabela{
+class ModelTabela {
     
     public $nome;
 

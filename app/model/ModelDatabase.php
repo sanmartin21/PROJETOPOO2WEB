@@ -11,8 +11,6 @@ class ModelDatabase {
     public $usuario;
     public $senha;
     public $sgbd;
-
-
    
     public $tabela;
     
