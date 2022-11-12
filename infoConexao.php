@@ -53,14 +53,11 @@
             <select class="form-select" id="sgbd" disabled>
                 <option value="mySQL">mySQL</option>
             </select>
-        </div>
-
+        </div> 
+    
         </br>
-        <input class="btn btn-primary" type="submit" value="Cadasto de Tabelas"><br>
+        
+        <a href="tabelas.php" class="btn btn-primary" role="button" aria-disabled="true">Cadasto de Tabelas</a>
     </fieldset>    
-  
-    <br><br><br>
-
-    <br><br>
 </body>
 </html>
