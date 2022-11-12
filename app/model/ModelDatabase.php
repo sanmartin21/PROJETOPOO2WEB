@@ -15,8 +15,6 @@ class ModelDatabase {
    
     public $tabela;
     
-    
-    
     public function addTabela(\App\Model\ModelTabela $tabela){
         $this->tabela[] = $tabela;
         return $this;
