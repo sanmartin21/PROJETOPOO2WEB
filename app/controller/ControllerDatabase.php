@@ -6,46 +6,37 @@ use App\Model\ModelDatabase;
 use App\Model\ModelTabela;
 use App\Model\ModelColuna;
 
-class ControllerDatabase {
+class ControllerDatabase
+{
 
-    public function teste(){
-
+    public function gerarJSON()
+    {
         $database = new ModelDatabase();
-        $database->setNome('Database');
-        $database->setUrl('myComputer/jvsanmartin/downloads');
-        $database->setPorta(2131);
-        $database->setUsuario('jvsanmartin');
-        $database->setSenha(1213114);
-        $database->setSgbd('MySql');
-
+        $database->setNome($_POST["nome"]);
+        $database->setUrl($_POST["url"]);
+        $database->setPorta($_POST["porta"]);
+        $database->setUsuario($_POST["usuario"]);
+        $database->setSenha($_POST["senha"]);
+        $database->setSgbd($_POST["sgbd"]);
 
         $tabela = new ModelTabela();
-        $tabela->nome = 'alunos';
+        $tabela->nome = $_POST["nomeTabela"];
 
-        $campo = new ModelColuna();
-        $campo->nome = 'testezinnnnn';
-        $campo->tipo = 'int';
-        $campo->isNotNull = true;
-        $campo->isPrimaryKey = true;
-        $campo->isAutoIncrement = true;
+        for ($i = 0; $i < $_POST["countColunas"]; $i++) {
+            $coluna = new ModelColuna();
+            $coluna->nome = $_POST["nomeColuna" . $i];
+            $coluna->tipo = $_POST["tipoColuna" . $i];
+            $coluna->isNotNull = ($_POST["notNullColuna" . $i] ??= 0)  == 'on' ? true : false;
+            $coluna->isPrimaryKey = ($_POST["primaryKeyColuna" . $i] ??= 0) == 'on' ? true : false;
+            $coluna->isAutoIncrement = ($_POST["autoIncrementColuna" . $i] ??= 0) == 'on' ? true : false;
 
-        $campo2 = new ModelColuna();
-        $campo2->nome = 'teste2';
-        $campo2->tipo = 'String';
-        $campo2->isNotNull = false;
-        $campo2->isPrimaryKey = false;
-        $campo2->isAutoIncrement = false;
-
-
-        $tabela->addColuna($campo);
-        
-        $tabela->addColuna($campo2);
+            $tabela->addColuna($coluna);
+        }
 
         $database->addTabela($tabela);
 
-        $json =  json_encode($database);
+        $json = json_encode($database);
 
-        $database->downloadJson($json); 
-
+        $database->downloadJson($json);
     }
 }

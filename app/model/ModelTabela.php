@@ -16,7 +16,6 @@ class ModelTabela {
         $this->coluna = array(); //array de colunas 
     }
 
-    //set co
     public function addColuna(\App\Model\ModelColuna $coluna)
     {
         $this->coluna[] = $coluna;

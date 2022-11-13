@@ -5,7 +5,6 @@ namespace App\Model;
 
 class ModelDatabase { 
     
-    //deixo publico os atributos, pra nao estourar erro no download do json
     public $nome; 
     public $url;
     public $porta;
@@ -62,7 +61,6 @@ class ModelDatabase {
         return $this;
     }
     
-
     
     public function getSgbd(){
         return $this->sgbd;
@@ -72,15 +70,6 @@ class ModelDatabase {
         return $this;
     }
     
-
-
-    //o q fazer agora
-
-   /* ajeita os 3 modelos 
-        faz os get e sets
-        arruma o __construct
-    */
-
 
     public function downloadJson($json) {
         $filename = 'generated_json_' . date('Y-m-d H:i:s');
