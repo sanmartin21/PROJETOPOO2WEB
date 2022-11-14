@@ -57,27 +57,20 @@
 
         </br>
 
-        <h2 class="mb-3">Cadastro de Tabelas</h2>
-
         <div id="tabelas">
         </div>
         <input type="hidden" id="countTabelas" name="countTabelas">
 
-        <h2 class="mb-3">Colunas</h2>
 
-        <div id="colunas">
-
-        </div>
-        <input type="hidden" id="countColunas" name="countColunas">
-
-        <input class="btn btn-success" value="Adicionar Coluna" onClick="onClickAdicionarColuna()">
         <input  class="btn btn-warning" type="submit" value="Gerar JSON">
         </br></br>
     </form>
 </body>
+
 <script>
+
+    
     function onLoad() {
-        onClickAdicionarColuna();
         onClickAdicionarTabela();
     }
 
@@ -87,11 +80,28 @@
         const div = document.createElement('div');
         div.className = 'row mb-3';
 
+        div.append(Tabela(divTabelas.childElementCount));
         div.append(getDivTabelaNome(divTabelas.childElementCount));
         div.append(getDivAdicionarTabela(divTabelas.childElementCount));
         divTabelas.append(div);
 
         document.getElementById("countTabelas").value = divTabelas.childElementCount;
+
+        const div2 = document.createElement('div');
+        div2.className = 'row mb-3';
+
+        div2.append(Coluna(divTabelas.childElementCount));
+        div2.append(DivColuna(divTabelas.childElementCount));
+        div2.append(CountColuna(divTabelas.childElementCount));
+        div2.append(getDivColunaNome(divTabelas.childElementCount));
+        div2.append(getDivColunaTipo(divTabelas.childElementCount));
+        div2.append(getDivColunaOptions(divTabelas.childElementCount));
+        div2.append(getDivAdicionarColuna(divTabelas.childElementCount));
+
+        divTabelas.append(div2);
+
+        document.getElementById("countColunas").value = divTabelas.childElementCount;
+        
     }
 
     //<input class="btn btn-success" value="Adicionar Coluna" onClick="onClickAdicionarColuna()">
@@ -108,6 +118,13 @@
         return div;
     }
 
+    function Tabela(count){
+        const h2 = document.createElement('h2');
+        h2.className = 'mb-3';
+        h2.innerText = "Tabelas";
+
+        return h2;
+    }
 
     function getDivTabelaNome(count) {
         const div = document.createElement('div');
@@ -145,6 +162,37 @@
         divColunas.append(div);
 
         document.getElementById("countColunas").value = divColunas.childElementCount;
+    }
+
+    //<h2 class="mb-3">Colunas</h2> 
+
+    function Coluna(count){
+
+        const h2 = document.createElement('h2');
+        h2.className = 'mb-3';
+        h2.innerText = "Colunas";
+
+        return h2;
+
+    }
+
+    //<div id="colunas">
+    function DivColuna(){
+        const div =  document.createElement('div');
+        div.id = 'colunas';
+
+        return div;
+    }
+
+    //<input type="hidden" id="countColunas" name="countColunas">
+
+    function CountColuna(){
+        const input = document.createElement('input');
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('id', 'countColunas');
+        input.setAttribute('name', 'countColunas');
+
+        return input;
     }
 
     function getDivColunaNome(count) {
@@ -250,6 +298,19 @@
         div.append(div2);
         div.append(div3);
 
+        return div;
+    }
+
+//<input class="btn btn-success" value="Adicionar Coluna" onClick="onClickAdicionarColuna()">
+    function getDivAdicionarColuna(count){
+        const div = document.createElement('div');
+        div.className = 'col';
+
+        const input = document.createElement('input');
+        input.className = "btn btn-success";
+        input.setAttribute('value', 'Adicionar Coluna');
+        input.setAttribute('onClick', 'onClickAdicionarColuna()');
+        div.append(input);
         return div;
     }
 </script>
