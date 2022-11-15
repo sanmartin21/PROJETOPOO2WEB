@@ -19,18 +19,20 @@ class ControllerDatabase
         $database->setSenha($_POST["senha"]);
         $database->setSgbd($_POST["sgbd"]);
 
-        $tabela = new ModelTabela();
-        $tabela->nome = $_POST["nomeTabela"];
+        for ($j = 0; $j < $_POST["countTabelas"]; $j++) {
+            $tabela = new ModelTabela();
+            $tabela->nome = $_POST["nomeTabela" . $j];
 
-        for ($i = 0; $i < $_POST["countColunas"]; $i++) {
-            $coluna = new ModelColuna();
-            $coluna->nome = $_POST["nomeColuna" . $i];
-            $coluna->tipo = $_POST["tipoColuna" . $i];
-            $coluna->isNotNull = ($_POST["notNullColuna" . $i] ??= 0)  == 'on' ? true : false;
-            $coluna->isPrimaryKey = ($_POST["primaryKeyColuna" . $i] ??= 0) == 'on' ? true : false;
-            $coluna->isAutoIncrement = ($_POST["autoIncrementColuna" . $i] ??= 0) == 'on' ? true : false;
+            for ($i = 0; $i < $_POST["countColunas"]; $i++) {
+                $coluna = new ModelColuna();
+                $coluna->nome = $_POST["nomeColuna" . $i];
+                $coluna->tipo = $_POST["tipoColuna" . $i];
+                $coluna->isNotNull = ($_POST["notNullColuna" . $i] ??= 0)  == 'on' ? true : false;
+                $coluna->isPrimaryKey = ($_POST["primaryKeyColuna" . $i] ??= 0) == 'on' ? true : false;
+                $coluna->isAutoIncrement = ($_POST["autoIncrementColuna" . $i] ??= 0) == 'on' ? true : false;
 
-            $tabela->addColuna($coluna);
+                $tabela->addColuna($coluna);
+            }
         }
 
         $database->addTabela($tabela);

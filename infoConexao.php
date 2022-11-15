@@ -59,9 +59,7 @@
 
         <div id="tabelas">
         </div>
-        <input type="hidden" id="countTabelas" name="countTabelas">
-
-
+    
         <input  class="btn btn-warning" type="submit" value="Gerar JSON">
         </br></br>
     </form>
@@ -81,6 +79,7 @@
         div.className = 'row mb-3';
 
         div.append(Tabela(divTabelas.childElementCount));
+        div.append(CountTabela(divTabelas.childElementCount));
         div.append(getDivTabelaNome(divTabelas.childElementCount));
         div.append(getDivAdicionarTabela(divTabelas.childElementCount));
         divTabelas.append(div);
@@ -126,6 +125,19 @@
         return h2;
     }
 
+
+    //<input type="hidden" id="countTabelas" name="countTabelas">
+
+    function CountTabela(){
+
+        const input = document.createElement('input');
+        input.id = 'countTabelas';
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('name', 'countTabelas');
+
+        return input;
+    }
+
     function getDivTabelaNome(count) {
         const div = document.createElement('div');
         div.className = 'col mt-3';
@@ -150,18 +162,18 @@
 
 
     function onClickAdicionarColuna() {
-        let divColunas = document.getElementById("colunas");
+        let divTabelas = document.getElementById("tabelas");
 
         const div = document.createElement('div');
         div.className = 'row mb-3';
 
-        div.append(getDivColunaNome(divColunas.childElementCount));
-        div.append(getDivColunaTipo(divColunas.childElementCount));
-        div.append(getDivColunaOptions(divColunas.childElementCount));
+        div.append(getDivColunaNome(divTabelas.childElementCount));
+        div.append(getDivColunaTipo(divTabelas.childElementCount));
+        div.append(getDivColunaOptions(divTabelas.childElementCount));
 
-        divColunas.append(div);
+        divTabelas.append(div);
 
-        document.getElementById("countColunas").value = divColunas.childElementCount;
+        document.getElementById("countTabelas").value = didivTabelasvColunas.childElementCount;
     }
 
     //<h2 class="mb-3">Colunas</h2> 
@@ -187,9 +199,10 @@
     //<input type="hidden" id="countColunas" name="countColunas">
 
     function CountColuna(){
+
         const input = document.createElement('input');
+        input.id = 'countColunas';
         input.setAttribute('type', 'hidden');
-        input.setAttribute('id', 'countColunas');
         input.setAttribute('name', 'countColunas');
 
         return input;
