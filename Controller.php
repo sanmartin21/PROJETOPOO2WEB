@@ -63,7 +63,6 @@ function downloadJson() {
 
     $filename = 'generated_json_' . date('Y-m-d H:i:s');
 
-    // Force download .json file with JSON in it
     header("Content-type: application/vnd.ms-excel");
     header("Content-Type: application/force-download");
     header("Content-Type: application/download");

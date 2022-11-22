@@ -27,9 +27,9 @@
 
 
         <input class="btn btn-danger" value="Adicionar Coluna" onClick="onClickAdicionarColuna()">
-        <button class="btn btn-danger" name="button" value="addTabela" type="submit">Adicionar nova Tabela</button>
+        <button class="btn btn-warning" name="button" value="addTabela" type="submit">Adicionar nova Tabela</button>
         <button class="btn btn-danger" name="button" value="visualizarJson" type="submit">Visualizar Json</button>
-        <button class="btn btn-danger" name="button" value="baixarJson" type="submit">Baixar Json</button>
+        <button class="btn btn-success" name="button" value="baixarJson" type="submit">Baixar Json</button>
     </form>
 
 </body>
@@ -37,7 +37,7 @@
     function onLoad() {
         onClickAdicionarColuna();
     }
-
+    
     function onClickAdicionarColuna() {
         let divColunas = document.getElementById("colunas");
 
