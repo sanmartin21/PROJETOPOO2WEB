@@ -6,8 +6,7 @@ use App\Model\ModelDatabase;
 use App\Model\ModelTabela;
 use App\Model\ModelColuna;
 
-class ControllerDatabase
-{
+class ControllerDatabase {
 
     public function gerarJSON()
     {
@@ -19,23 +18,22 @@ class ControllerDatabase
         $database->setSenha($_POST["senha"]);
         $database->setSgbd($_POST["sgbd"]);
 
-        for ($j = 0; $j < $_POST["countTabelas"]; $j++) {
+        for ($i = 0; $i < $_POST["countTabelas"]; $i++) {
             $tabela = new ModelTabela();
-            $tabela->nome = $_POST["nomeTabela" . $j];
+            $tabela->nome = $_POST["nomeTabela" . $i];
 
-            for ($i = 0; $i < $_POST["countColunas"]; $i++) {
+            for ($j = 0; $j < $_POST["countColunas"]; $j++) {
                 $coluna = new ModelColuna();
-                $coluna->nome = $_POST["nomeColuna" . $i];
-                $coluna->tipo = $_POST["tipoColuna" . $i];
-                $coluna->isNotNull = ($_POST["notNullColuna" . $i] ??= 0)  == 'on' ? true : false;
-                $coluna->isPrimaryKey = ($_POST["primaryKeyColuna" . $i] ??= 0) == 'on' ? true : false;
-                $coluna->isAutoIncrement = ($_POST["autoIncrementColuna" . $i] ??= 0) == 'on' ? true : false;
+                $coluna->nome = $_POST["nomeColuna" . $j];
+                $coluna->tipo = $_POST["tipoColuna" . $j];
+                $coluna->isNotNull = ($_POST["notNullColuna" . $j] ??= 0)  == 'on' ? true : false;
+                $coluna->isPrimaryKey = ($_POST["primaryKeyColuna" . $j] ??= 0) == 'on' ? true : false;
+                $coluna->isAutoIncrement = ($_POST["autoIncrementColuna".$j] ??= 0) == 'on' ? true : false;
 
                 $tabela->addColuna($coluna);
             }
+            $database->addTabela($tabela);
         }
-
-        $database->addTabela($tabela);
 
         $json = json_encode($database);
 
