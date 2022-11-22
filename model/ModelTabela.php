@@ -1,9 +1,9 @@
-<?php 
- 
-namespace App\Model;
+<?php
 
-class ModelTabela {
-    
+namespace Model;
+
+class ModelTabela
+{
     public $nome;
 
     /**
@@ -13,14 +13,12 @@ class ModelTabela {
 
     public function __construct()
     {
-        $this->coluna = array(); //array de colunas 
+        $this->coluna = array(); //array de colunas
     }
 
-    public function addColuna(\App\Model\ModelColuna $coluna)
+    public function addColuna(\Model\ModelColuna $coluna)
     {
         $this->coluna[] = $coluna;
         return $this;
     }
-
-
 }

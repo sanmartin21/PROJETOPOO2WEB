@@ -1,14 +1,13 @@
-<?php 
- 
-namespace App\Model;
+<?php
 
-class ModelColuna {
-    
+namespace Model;
+
+class ModelColuna
+{
     public $nome;
     public $tipo;
+    public bool $isPrimaryKey;
     public bool $isNotNull;
     public bool $isAutoIncrement;
-    public bool $isPrimaryKey;
-
     
 }
