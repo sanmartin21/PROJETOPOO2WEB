@@ -12,7 +12,7 @@ $acao = isset($_POST['button']) ? $_POST['button'] : "";
 if ($acao == "database") {
     getDadosDatabase();
     header('Location: TabelaForm.php');
-} elseif ($acao == "addTabela") {
+} elseif ($acao == "onClickAdicionarTabela") {
     getDadosTabela();
     header('Location: TabelaForm.php');
 } elseif ($acao == "visualizarJson") {

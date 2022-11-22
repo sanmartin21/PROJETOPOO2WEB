@@ -11,10 +11,22 @@
 </head>
 <body class="container-md" onload="onLoad()">
 <form action="Controller.php" method="POST">
-    <h1>Cadastro de Tabelas</h1>
+
+        <div class="row mb-3">
+            <div class="col">
+                <h1>Cadastro de Tabelas</h1>    
+            </div>
+            <div class="col">
+                </br>
+                <button class="btn btn-warning" name="button" value="onClickAdicionarTabela" type="submit">Adicionar nova Tabela</button>
+            </div>
+        </div>
+
+
         <div class="row mb-3">
             <div class="col">
                 <label for="nomeTabela" class="form-label">Nome da Tabela</label>
+                
                 <input required type="text" name="nomeTabela" class="form-control" placeholder="Insira o nome da Tabela" aria-label="First name"></br>
             </div>
         </div>
@@ -27,7 +39,6 @@
 
 
         <input class="btn btn-danger" value="Adicionar Coluna" onClick="onClickAdicionarColuna()">
-        <button class="btn btn-warning" name="button" value="addTabela" type="submit">Adicionar nova Tabela</button>
         <button class="btn btn-danger" name="button" value="visualizarJson" type="submit">Visualizar Json</button>
         <button class="btn btn-success" name="button" value="baixarJson" type="submit">Baixar Json</button>
     </form>
@@ -37,7 +48,7 @@
     function onLoad() {
         onClickAdicionarColuna();
     }
-    
+
     function onClickAdicionarColuna() {
         let divColunas = document.getElementById("colunas");
 

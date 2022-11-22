@@ -13,38 +13,38 @@
 
 <body class="container-md">
 
-    <h1>Cadastrando a Configuração do DataBase</h1>
+    <h1>Cadastrando a Configuração do Database</h1>
 
     <form action="Controller.php" method="POST">
 
     <div class="row mb-3">
             <div class="col">
                 <label for="nome" class="form-label">Nome</label>
-                <input required type="text" name="nome" class="form-control" placeholder="Insira o nome do DataBase" aria-label="First name"></br>
+                <input required type="text" name="nome" class="form-control" placeholder="Insira o nome do Database" aria-label="First name"></br>
             </div>
         
             <div class="col">
                 <label for="url" class="form-label">URL</label>
-                <input required type="text" name="url" class="form-control" placeholder="Insira a URL do DataBase" aria-label="First name"></br>
+                <input required type="text" name="url" class="form-control" placeholder="Insira a URL do Database" aria-label="First name"></br>
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col">
                 <label for="porta" class="form-label">Porta</label>
-                <input required type="number" name="porta" class="form-control" placeholder="Insira a Porta do DataBase" aria-label="First name"></br>
+                <input required type="number" name="porta" class="form-control" placeholder="Insira a Porta do Database" aria-label="First name"></br>
             </div>
 
             <div class="col">
                 <label for="usuario" class="form-label">Usuario</label>
-                <input required type="text" name="usuario" class="form-control" placeholder="Insira o Usuario do DataBase" aria-label="First name"></br>
+                <input required type="text" name="usuario" class="form-control" placeholder="Insira o Usuario do Database" aria-label="First name"></br>
             </div>
         </div>    
 
         <div class="row mb-3">
             <div class="col">
                 <label for="senha" class="form-label">Senha</label>
-                <input required type="text" name="senha" class="form-control" placeholder="Insira a Senha do DataBase" aria-label="First name"></br>
+                <input required type="text" name="senha" class="form-control" placeholder="Insira a Senha do Database" aria-label="First name"></br>
             </div>
 
             <div class="col">
